@@ -1,11 +1,275 @@
-<html
-  <head>
-    <title>Page 2</title>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nutrition Month 2026</title>
 
-  <body>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
-    <center><h1>My PAGE 2</h1></center>
-    
-  </body>
+body{
+    background:#f5fff5;
+    color:#333;
+}
+
+header{
+    background:linear-gradient(135deg,#2ecc71,#27ae60);
+    color:white;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{
+    font-size:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:yellow;
+}
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:70px 8%;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+}
+
+.hero-text h2{
+    font-size:50px;
+    color:#27ae60;
+}
+
+.hero-text p{
+    margin-top:20px;
+    font-size:18px;
+    line-height:1.8;
+}
+
+button{
+    margin-top:30px;
+    padding:15px 35px;
+    background:#27ae60;
+    color:white;
+    border:none;
+    border-radius:40px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#219150;
+}
+
+.hero img{
+    width:450px;
+    max-width:100%;
+}
+
+section{
+    padding:70px 8%;
+}
+
+.title{
+    text-align:center;
+    font-size:38px;
+    color:#27ae60;
+    margin-bottom:50px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:15px;
+    color:#27ae60;
+}
+
+.card p{
+    padding:0 15px 20px;
+}
+
+.activities{
+    background:#e8ffe8;
+}
+
+ul{
+    max-width:800px;
+    margin:auto;
+    font-size:20px;
+    line-height:2;
+}
+
+footer{
+    background:#27ae60;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+}
+
+@media(max-width:800px){
+
+.hero{
+    text-align:center;
+}
+
+.hero h2{
+    font-size:38px;
+}
+
+nav{
+    display:none;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<h1>🥗 Nutrition Month</h1>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Tips</a>
+<a href="#">Foods</a>
+<a href="#">Activities</a>
+</nav>
+
+</header>
+
+<div class="hero">
+
+<div class="hero-text">
+
+<h2>Eat Right, Live Bright!</h2>
+
+<p>
+Celebrate Nutrition Month by choosing healthier foods,
+staying active, and encouraging everyone to build better
+eating habits. Good nutrition leads to a healthier and
+happier future.
+</p>
+
+<button>Learn More</button>
+
+</div>
+
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=900" alt="Healthy Food">
+
+</div>
+
+<section>
+
+<h2 class="title">Healthy Eating Tips</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=900">
+<h3>Eat More Vegetables</h3>
+<p>Fill half your plate with colorful vegetables every meal.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=900">
+<h3>Choose Fruits</h3>
+<p>Fresh fruits are naturally sweet and packed with vitamins.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=900">
+<h3>Drink Water</h3>
+<p>Stay hydrated by drinking at least 8 glasses of water daily.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="activities">
+
+<h2 class="title">Nutrition Month Activities</h2>
+
+<ul>
+<li>🥗 Healthy Cooking Demonstration</li>
+<li>🍎 Poster Making Contest</li>
+<li>🏃 Fun Run and Zumba</li>
+<li>🥦 Nutrition Quiz Bee</li>
+<li>🍇 Fruit and Vegetable Exhibit</li>
+<li>🥕 Healthy Lunch Challenge</li>
+<li>🍉 School Garden Project</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2 class="title">Why Nutrition Matters</h2>
+
+<p style="max-width:900px;margin:auto;text-align:center;font-size:20px;line-height:2;">
+Good nutrition provides the energy we need to learn, play,
+and grow. Eating balanced meals rich in fruits, vegetables,
+whole grains, and protein helps strengthen the immune system,
+improves concentration, and supports a healthy lifestyle.
+Making smart food choices today creates a brighter tomorrow.
+</p>
+
+</section>
+
+<footer>
+
+<h2>Nutrition Month 2026</h2>
+
+<p>"Healthy Diet, Healthy Life!"</p>
+
+<p>Made with ❤️ for School Project</p>
+
+</footer>
+
+</body>
 </html>
