@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Apothecary Diaries</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background:
+                linear-gradient(rgba(12, 30, 27, 0.88), rgba(8, 20, 19, 0.94)),
+                url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=2000&q=80");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            font-family: Georgia, serif;
+            color: #f2ead5;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 64px;
+            letter-spacing: 5px;
+            color: #d8c28f;
+            margin-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.8;
+            color: #d8d4c5;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 45px;
+
+            background: rgba(15, 35, 31, 0.92);
+
+            border: 1px solid rgba(216, 194, 143, 0.35);
+            border-radius: 20px;
+
+            box-shadow:
+                0 15px 50px rgba(0, 0, 0, 0.45);
+
+            backdrop-filter: blur(8px);
+        }
+
+
+
+        #intro {
+            min-height: 90vh;
+            max-width: 1200px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 50px;
+
+            background: rgba(12, 30, 27, 0.35);
+
+            border: none;
+            box-shadow: none;
+        }
+
+        .intro-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        #intro p {
+            max-width: 650px;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        .subtitle {
+            color: #9bc6ad;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .flower {
+            font-size: 38px;
+            color: #d8c28f;
+            margin: 25px 0;
+            opacity: 0.8;
+        }
+
+        
+
+        .maomao-container {
+            flex: 0 0 390px;
+            height: 560px;
+
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .maomao-container::before {
+            content: "";
+            position: absolute;
+
+            width: 330px;
+            height: 470px;
+
+            background: rgba(82, 145, 121, 0.12);
+
+            z-index: 0;
+        }
+
+        .maomao-image {
+            position: relative;
+            z-index: 1;
+
+            width: 340px;
+            height: 510px;
+
+            object-fit: cover;
+            object-position: center top;
+
+            border-radius: 170px 170px 25px 25px;
+
+            border: 2px solid rgba(216, 194, 143, 0.65);
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.65);
+        }
+
+        .maomao-container::after {
+            content: "❀";
+
+            position: absolute;
+            bottom: 5px;
+            right: 20px;
+
+            color: #d8c28f;
+            font-size: 35px;
+        }
+
+
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            flex: 1;
+
+            min-width: 200px;
+            max-width: 220px;
+
+            padding: 25px;
+
+            background: rgba(24, 51, 44, 0.90);
+
+            border-radius: 15px;
+
+            border: 1px solid rgba(155, 198, 173, 0.25);
+        }
+
+
+
+        .card h2 {
+            color: #d8d4c5;
+            margin-bottom: 15px;
+            font-size: 23px;
+            font-weight: normal;
+        }
+
+        .bottle {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+
+
+        footer {
+            text-align: center;
+            padding: 35px;
+
+            color: #8fa99c;
+
+            letter-spacing: 2px;
+            font-size: 13px;
+        }
+
+
+
+        .divider {
+            width: 100px;
+            height: 1px;
+
+            background: #d8c28f;
+
+            margin: 20px 0;
+        }
+
+
+
+        @media (max-width: 800px) {
+
+            #intro {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 80px;
+            }
+
+            .intro-text {
+                text-align: center;
+            }
+
+            .divider {
+                margin: 20px auto;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            .maomao-container {
+                flex-basis: 480px;
+                width: 100%;
+            }
+
+            .maomao-image {
+                width: 290px;
+                height: 430px;
+            }
+
+            .card {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+
+    <section id="intro">
+
+        <div class="intro-text">
+
+            <div class="flower">❀</div>
+
+            <div class="subtitle">
+                Palace • Medicine • Mystery
+            </div>
+
+            <h1>The Apothecary Diaries</h1>
+
+            <div class="divider"></div>
+
+            <p>
+                Within the walls of the imperial palace, secrets bloom like flowers.
+                Among elegant courtyards, mysterious illnesses, and whispered rumors,
+                curiosity can be more powerful than royalty.
+            </p>
+
+            <div class="flower">𓆸</div>
+
+        </div>
+
+        <div class="maomao-container">
+
+            <img
+                class="maomao-image"
+                src="https://kusuriyanohitorigoto.jp/season2/assets/images/character/maomao.png"
+                alt="Maomao from The Apothecary Diaries"
+            >
+
+        </div>
+
+    </section>
+    <section>
+
+        <p>
+            Jinshi is a beautiful and influential eunuch who serves within the
+            Imperial Palace. Known for his graceful appearance, charming
+            personality, and sharp intelligence, he holds a powerful position
+            despite his seemingly gentle nature. Jinshi often takes an interest
+            in Maomao and frequently draws her into the palace's many mysteries.
+            Beneath his elegant appearance lies a much more complicated identity
+            and a deep connection to the affairs of the Imperial Palace.
+        </p>
+
+    </section>
+    <section>
+
+        <div class="card-container">
+
+            <div class="card">
+
+                <div class="bottle">🌸</div>
+
+                <h2>Lishu</h2>
+
+                <p>
+                    The youngest of the four concubines, Lishu is gentle and
+                    reserved. Despite her position in the Inner Palace, she
+                    struggles with loneliness and insecurity.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="bottle">🪷</div>
+
+                <h2>Lihua</h2>
+
+                <p>
+                    Elegant and graceful, Lihua is one of the highest-ranking
+                    consorts. She is known for her beauty, dignity, and refined
+                    presence within the palace.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="bottle">🌺</div>
+
+                <h2>Gyokuyou</h2>
+
+                <p>
+                    Intelligent, charismatic, and observant, Gyokuyou is one of
+                    the Emperor's favored consorts. Her calm confidence makes
+                    her a powerful presence in the Inner Palace.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="bottle">🌿</div>
+
+                <h2>Ah-Duo</h2>
+
+                <p>
+                    Wise and composed, Ah-Duo is a former high-ranking consort
+                    respected for her strength and maturity. Her connection to
+                    the palace holds many fascinating secrets.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <p>
+            Maomao is a clever and highly observant young apothecary whose
+            knowledge of medicine, herbs, and poisons makes her unique within
+            the Imperial Palace. Originally working as an apothecary in the
+            pleasure district, she is brought into the palace as a servant.
+            Her curiosity and sharp mind soon lead her to investigate strange
+            illnesses, unusual incidents, and hidden secrets. Although she
+            often appears uninterested in palace politics, Maomao's intelligence,
+            practical nature, and determination repeatedly place her at the
+            center of important mysteries.
+        </p>
+
+    </section>
+
+
+    <footer>
+
+        ❀ 𓆸 ❀ &nbsp;
+        THE APOTHECARY DIARIES
+        &nbsp; ❀ 𓆸 ❀
+
+    </footer>
+
+</body>
+</html>
