@@ -1,8 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Student Information</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,6 +47,30 @@
 
         h1 {
             margin-bottom: 20px;
+        }
+
+        /* Navigation box */
+        .navigation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #65744a;
+            border: 2px solid #3f4a2f;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .navigation a {
+            color: white;
+            text-decoration: none;
+            margin: 5px;
+            padding: 8px 12px;
+            background-color: #3f4a2f;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .navigation a:hover {
+            background-color: #82935e;
         }
     </style>
 </head>
@@ -134,11 +160,15 @@
         </tr>
     </table>
 
-    <a href="page2.html" target="_blank" style="float: left;">Page 2</a>
-    <a href="https://www.google.com" target="_blank" style="float: left;">Google</a>
-    <a href="http://vcmc.eulap.co:8080/cbs/a/login" target="_blank" style="float: left;">Eulap LMS</a>
-    
+  
+    <div class="navigation">
+        <a href="page2.html" target="_blank">Page 2</a>
+        <a href="https://www.google.com" target="_blank">Google</a>
+        <a href="http://vcmc.eulap.co:8080/cbs/a/login" target="_blank">Eulap LMS</a>
+    </div>
+
 </div>
 
 </body>
 </html>
+```
