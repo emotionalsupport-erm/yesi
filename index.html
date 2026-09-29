@@ -5,74 +5,63 @@
     <meta charset="UTF-8">
     <title>Student Information</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
+<style>
+  .toc-wrap{
+    max-width:420px; margin:0 auto; padding:2.5rem 1.5rem; text-align:center;
+    font-family:'Noto Serif', serif;
+  }
+  .toc-wrap .divider{
+    display:flex; align-items:center; gap:0.8rem; max-width:220px; margin:0 auto 1.6rem; opacity:0.85;
+  }
+  .toc-wrap .divider::before, .toc-wrap .divider::after{
+    content:""; flex:1; height:1px; background:linear-gradient(90deg, transparent, #D4AF6A, transparent);
+  }
+  .toc-wrap .divider span{
+    color:#D4AF6A; transform:rotate(45deg); border:1px solid #D4AF6A; width:8px; height:8px; display:block;
+  }
+  .toc-wrap h2{
+    color:#F0D89A; font-size:1.9rem; margin:0 0 2rem; letter-spacing:0.03em;
+    text-shadow:0 0 18px rgba(212,175,106,0.35);
+  }
+  .toc-buttons{display:flex; flex-direction:column; gap:1rem;}
+  .toc-buttons a{
+    position:relative; display:flex; align-items:center; gap:1rem;
+    text-align:left; text-decoration:none; overflow:hidden;
+    padding:1rem 1.3rem; border-radius:3px; color:#F0D89A; font-size:1.02rem; letter-spacing:0.02em;
+    border:1px solid #D4AF6A;
+    background:linear-gradient(135deg, rgba(212,175,106,0.10), rgba(212,175,106,0.02));
+    box-shadow:0 6px 16px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(212,175,106,0.08);
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    opacity:0; animation:toc-rise .5s ease forwards;
+  }
+  .toc-buttons a:nth-child(1){animation-delay:.05s;}
+  .toc-buttons a:nth-child(2){animation-delay:.12s;}
+  .toc-buttons a:nth-child(3){animation-delay:.19s;}
+  .toc-buttons a:nth-child(4){animation-delay:.26s;}
+  .toc-buttons a:nth-child(5){animation-delay:.33s;}
+  .toc-buttons a:nth-child(6){animation-delay:.40s;}
+  .toc-buttons a:nth-child(7){animation-delay:.47s;}
+  @keyframes toc-rise{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  .toc-buttons a:hover{
+    transform:translateY(-3px);
+    background:linear-gradient(135deg, rgba(212,175,106,0.22), rgba(212,175,106,0.05));
+    box-shadow:0 10px 26px rgba(0,0,0,0.35), 0 0 0 1px #D4AF6A;
+  }
+  .toc-buttons .num{
+    flex:0 0 auto; width:30px; height:30px; border-radius:50%;
+    border:1px solid #D4AF6A; display:flex; align-items:center; justify-content:center;
+    font-size:0.85rem; color:#0E2019; background:linear-gradient(160deg, #F0D89A, #D4AF6A);
+    font-weight:700;
+  }
+  @media (prefers-reduced-motion:reduce){
+    .toc-buttons a{animation:none; opacity:1;}
+  }
+</style>
 
-        .container {
-            width: 500px;
-            margin: 40px auto;
-            padding: 20px;
-            background: white;
-            border: 2px solid #333;
-            border-radius: 10px;
-            text-align: center;
-        }
 
-        img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border: 2px solid black;
-            margin-bottom: 15px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
-
-        td {
-            padding: 8px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        td:first-child {
-            font-weight: bold;
-            width: 40%;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        /* Navigation box */
-        .navigation {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #65744a;
-            border: 2px solid #3f4a2f;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .navigation a {
-            color: white;
-            text-decoration: none;
-            margin: 5px;
-            padding: 8px 12px;
-            background-color: #3f4a2f;
-            border-radius: 5px;
-            display: inline-block;
-        }
-
-        .navigation a:hover {
-            background-color: #82935e;
-        }
-    </style>
 </head>
 
 <body>
@@ -161,12 +150,20 @@
     </table>
 
   
-    <div class="navigation">
-        <a href="page2.html" target="_blank">Page 2</a>
-        <a href="https://www.google.com" target="_blank">Google</a>
-        <a href="http://vcmc.eulap.co:8080/cbs/a/login" target="_blank">Eulap LMS</a>
-    </div>
-
+  <div class="toc-wrap">
+  <div class="divider"><span></span></div>
+  <h2>Table of Contents</h2>
+  <nav class="toc-buttons">
+    <a href="page2.html"><span class="num">2</span> Page 2</a>
+    <a href="page3.html"><span class="num">3</span> Page 3</a>
+    <a href="page4.html"><span class="num">4</span> Page 4</a>
+    <a href="page5.html"><span class="num">5</span> Page 5</a>
+    <a href="page6.html"><span class="num">6</span> Page 6</a>
+    <a href="page7.html"><span class="num">7</span> Page 7</a>
+    <a href="page8.html"><span class="num">8</span> Page 8</a>
+  </nav>
+</div>
+    
 </div>
 
 </body>
