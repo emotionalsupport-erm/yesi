@@ -1,171 +1,118 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Student Information</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Student Registry — The Apothecary's Diaries</title>
+<link rel="stylesheet" href="style.css">
 <style>
-  .toc-wrap{
-    max-width:420px; margin:0 auto; padding:2.5rem 1.5rem; text-align:center;
-    font-family:'Noto Serif', serif;
+  .container{max-width:700px; margin:0 auto; padding:4.5rem 1.5rem 2rem;}
+
+  .registry-head{text-align:center; margin-bottom:2.5rem;}
+  .seal{
+    width:52px; height:52px; border:2px solid var(--vermillion); background:rgba(139,46,42,0.25);
+    display:flex; align-items:center; justify-content:center; margin:0 auto 1.4rem; transform:rotate(-3deg);
+    color:var(--vermillion); font-family:'Ma Shan Zheng',cursive; font-size:1.6rem;
+    box-shadow:0 0 0 1px rgba(212,175,106,0.4), 0 4px 14px rgba(0,0,0,0.35);
   }
-  .toc-wrap .divider{
-    display:flex; align-items:center; gap:0.8rem; max-width:220px; margin:0 auto 1.6rem; opacity:0.85;
+  .registry-head h1{
+    font-family:'Ma Shan Zheng',cursive; font-size:clamp(2.2rem,7vw,3.2rem); line-height:1.1;
+    background:linear-gradient(180deg, var(--gold-bright), var(--gold) 55%, var(--gold-dim));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 2px 12px rgba(212,175,106,0.25));
+    margin-bottom:0.6rem;
   }
-  .toc-wrap .divider::before, .toc-wrap .divider::after{
-    content:""; flex:1; height:1px; background:linear-gradient(90deg, transparent, #D4AF6A, transparent);
+  .registry-head .sub{font-style:italic; color:var(--ink-soft); font-size:0.95rem;}
+
+  .photo-frame{
+    width:200px; height:200px; margin:2rem auto 2.5rem; position:relative;
+    border:2px solid var(--gold); border-radius:4px; overflow:hidden;
+    box-shadow:0 0 0 5px var(--jade-deep), 0 0 0 6px rgba(212,175,106,0.5), 0 10px 30px rgba(0,0,0,0.45);
   }
-  .toc-wrap .divider span{
-    color:#D4AF6A; transform:rotate(45deg); border:1px solid #D4AF6A; width:8px; height:8px; display:block;
+  .photo-frame::before{
+    content:""; position:absolute; inset:8px; border:1px solid rgba(212,175,106,0.6);
+    pointer-events:none; z-index:2;
   }
-  .toc-wrap h2{
-    color:#F0D89A; font-size:1.9rem; margin:0 0 2rem; letter-spacing:0.03em;
-    text-shadow:0 0 18px rgba(212,175,106,0.35);
+  .photo-frame img{
+    width:100%; height:100%; object-fit:cover; display:block; filter:sepia(0.15) saturate(1.05);
   }
-  .toc-buttons{display:flex; flex-direction:column; gap:1rem;}
-  .toc-buttons a{
-    position:relative; display:flex; align-items:center; gap:1rem;
-    text-align:left; text-decoration:none; overflow:hidden;
-    padding:1rem 1.3rem; border-radius:3px; color:#F0D89A; font-size:1.02rem; letter-spacing:0.02em;
-    border:1px solid #D4AF6A;
-    background:linear-gradient(135deg, rgba(212,175,106,0.10), rgba(212,175,106,0.02));
-    box-shadow:0 6px 16px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(212,175,106,0.08);
-    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
-    opacity:0; animation:toc-rise .5s ease forwards;
+
+  .info-table{
+    width:100%; border-collapse:collapse; margin:0 auto 3rem; max-width:640px;
+    background:rgba(212,175,106,0.03); border:1px solid rgba(212,175,106,0.3); border-radius:2px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.25);
   }
-  .toc-buttons a:nth-child(1){animation-delay:.05s;}
-  .toc-buttons a:nth-child(2){animation-delay:.12s;}
-  .toc-buttons a:nth-child(3){animation-delay:.19s;}
-  .toc-buttons a:nth-child(4){animation-delay:.26s;}
-  .toc-buttons a:nth-child(5){animation-delay:.33s;}
-  .toc-buttons a:nth-child(6){animation-delay:.40s;}
-  .toc-buttons a:nth-child(7){animation-delay:.47s;}
-  @keyframes toc-rise{
-    from{opacity:0; transform:translateY(10px);}
-    to{opacity:1; transform:translateY(0);}
+  .info-table tr{border-bottom:1px dashed rgba(212,175,106,0.25);}
+  .info-table tr:last-child{border-bottom:none;}
+  .info-table tr:nth-child(odd){background:rgba(212,175,106,0.05);}
+  .info-table td{padding:0.85rem 1.2rem; vertical-align:top; font-size:0.95rem;}
+  .info-table td:first-child{
+    color:var(--gold); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.09em;
+    width:42%; white-space:nowrap; padding-top:1rem;
   }
-  .toc-buttons a:hover{
-    transform:translateY(-3px);
-    background:linear-gradient(135deg, rgba(212,175,106,0.22), rgba(212,175,106,0.05));
-    box-shadow:0 10px 26px rgba(0,0,0,0.35), 0 0 0 1px #D4AF6A;
-  }
-  .toc-buttons .num{
-    flex:0 0 auto; width:30px; height:30px; border-radius:50%;
-    border:1px solid #D4AF6A; display:flex; align-items:center; justify-content:center;
-    font-size:0.85rem; color:#0E2019; background:linear-gradient(160deg, #F0D89A, #D4AF6A);
-    font-weight:700;
-  }
-  @media (prefers-reduced-motion:reduce){
-    .toc-buttons a{animation:none; opacity:1;}
-  }
+  .info-table td:last-child{color:var(--ivory); font-family:'Noto Serif',serif;}
 </style>
-
-
 </head>
-
 <body>
+
+<div class="leaves" aria-hidden="true">
+  <span style="left:4%; width:11px; height:11px; animation-duration:11s; animation-delay:0s;"></span>
+  <span style="left:14%; width:8px; height:8px; animation-duration:9s; animation-delay:1.5s;"></span>
+  <span style="left:24%; width:13px; height:13px; animation-duration:14s; animation-delay:3s;"></span>
+  <span style="left:36%; width:9px; height:9px; animation-duration:10s; animation-delay:0.7s;"></span>
+  <span style="left:48%; width:12px; height:12px; animation-duration:13s; animation-delay:4.5s;"></span>
+  <span style="left:58%; width:7px; height:7px; animation-duration:8.5s; animation-delay:2.2s;"></span>
+  <span style="left:68%; width:14px; height:14px; animation-duration:15s; animation-delay:5.5s;"></span>
+  <span style="left:78%; width:10px; height:10px; animation-duration:11.5s; animation-delay:1s;"></span>
+  <span style="left:88%; width:9px; height:9px; animation-duration:9.5s; animation-delay:3.8s;"></span>
+  <span style="left:94%; width:12px; height:12px; animation-duration:12.5s; animation-delay:6s;"></span>
+</div>
 
 <div class="container">
 
-    <h1>STUDENT INFORMATION</h1>
+  <div class="registry-head">
+    <div class="seal">籍</div>
+    <h1>Student Registry</h1>
+    <p class="sub">an entry in the apothecary's ledger</p>
+  </div>
 
+  <div class="photo-frame">
     <img src="https://drive.google.com/thumbnail?id=1qaC5ozdZ63Gxcp_Dkj35ZVagVEBtgM2O&sz=w1000" alt="Student Photo">
+  </div>
 
-    <table>
-        <tr>
-            <td>Emmanuel R. Manaois</td>
-            <td></td>
-        </tr>
+  <table class="info-table">
+    <tr><td>Name</td><td>Emmanuel R. Manaois</td></tr>
+    <tr><td>Student ID</td><td>MAN3161-24</td></tr>
+    <tr><td>Grade Level</td><td>Grade IX</td></tr>
+    <tr><td>Section</td><td>Galatians</td></tr>
+    <tr><td>Birthdate</td><td>April 13, 2012</td></tr>
+    <tr><td>Age</td><td>14</td></tr>
+    <tr><td>Gender</td><td>Male</td></tr>
+    <tr><td>Address</td><td>B7 L3 Phase 3 Ruby St. Perpetual Village 7</td></tr>
+    <tr><td>Contact No.</td><td>N/A</td></tr>
+    <tr><td>Email</td><td>essenpou@gmail.com</td></tr>
+    <tr><td>Parent / Guardian</td><td>Maria Theresa Manaois</td></tr>
+    <tr><td>Guardian Contact</td><td>09759945133</td></tr>
+    <tr><td>Hobbies</td><td>Gaming, Eating, Watching TV shows</td></tr>
+    <tr><td>Favorite Subject</td><td>English</td></tr>
+    <tr><td>Aspired Course</td><td>Nursing</td></tr>
+  </table>
 
-        <tr>
-            <td>MAN3161-24</td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td>Grade IX</td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td>Galatians</td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td>April 13, 2012</td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td>14</td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td>Male</td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td>B7 L3 Phase 3 Ruby St. Perpetual Village 7</td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td>N/A</td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td>essenpou@gmail.com</td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td>Maria Theresa Manaois</td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td>09759945133</td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td>Gaming, Eating, Watching TV shows</td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td>English</td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td>Nursing</td>
-            <td></td>
-        </tr>
-    </table>
-
-  
   <div class="toc-wrap">
-  <div class="divider"><span></span></div>
-  <h2>Table of Contents</h2>
-  <nav class="toc-buttons">
-    <a href="page2.html"><span class="num">2</span> Page 2</a>
-    <a href="page3.html"><span class="num">3</span> Page 3</a>
-    <a href="page4.html"><span class="num">4</span> Page 4</a>
-    <a href="page5.html"><span class="num">5</span> Page 5</a>
-    <a href="page6.html"><span class="num">6</span> Page 6</a>
-    <a href="page7.html"><span class="num">7</span> Page 7</a>
-    <a href="page8.html"><span class="num">8</span> Page 8</a>
-  </nav>
-</div>
-    
+    <div class="divider"><span></span></div>
+    <h2>Table of Contents</h2>
+    <nav class="toc-buttons">
+      <a href="page2.html"><span class="num">2</span> Page 2</a>
+      <a href="page3.html"><span class="num">3</span> Page 3</a>
+      <a href="page4.html"><span class="num">4</span> Page 4</a>
+      <a href="page5.html"><span class="num">5</span> Page 5</a>
+      <a href="page6.html"><span class="num">6</span> Page 6</a>
+      <a href="page7.html"><span class="num">7</span> Page 7</a>
+      <a href="page8.html"><span class="num">8</span> Page 8</a>
+    </nav>
+  </div>
+
 </div>
 
 </body>
 </html>
-```
